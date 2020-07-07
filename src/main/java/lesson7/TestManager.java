@@ -16,7 +16,7 @@ public class TestManager {
 
         //создаем лист из декларированных методов и переменные для методов @Before и @After, счетчики
         ArrayList<Method> methodList = new ArrayList<>(Arrays.asList(c.getDeclaredMethods()));
-//        if (methodList.size())
+        
         if (methodList.size() == 0) {
             throw new RuntimeException("В тестовом классе нет ни одного тестового метода");
         }
