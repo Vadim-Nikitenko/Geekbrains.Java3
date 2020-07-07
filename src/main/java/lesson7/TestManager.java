@@ -39,17 +39,17 @@ public class TestManager {
             }
         }
 
-        //вызываем метод с аннотацией @BeforeSuite в самом начале если он есть
-        if (before != null) {
-            before.invoke(null);
-        }
-
         //удаляем из листа методы @BeforeSuite и @AfterSuite
         methodList.remove(before);
         methodList.remove(after);
 
         //соритруем методы с аннотацией @Test по полю priority
         methodList.sort(Comparator.comparingInt(m -> m.getAnnotation(Test.class).priority()));
+
+        //вызываем метод с аннотацией @BeforeSuite в самом начале если он есть
+        if (before != null) {
+            before.invoke(null);
+        }
 
         //вызываем методы из списка согласно их очередности
         for (Method method : methodList) {
