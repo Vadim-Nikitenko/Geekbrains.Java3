@@ -21,7 +21,7 @@ public class TestManager {
         int beforeCount = 0;
         int afterCount = 0;
 
-        //проходимся по циклу методов, присваиваем методу before метод с аннотацией @BeforeSuite. Аналогично @AfterSuite.
+        //проходимся циклом по методам, присваиваем методу before метод с аннотацией @BeforeSuite. Аналогично @AfterSuite.
         for (Method method : methodList) {
             if (method.isAnnotationPresent(BeforeSuite.class)) {
                 beforeCount++;
