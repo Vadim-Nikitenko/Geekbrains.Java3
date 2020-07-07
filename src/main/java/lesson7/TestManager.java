@@ -12,7 +12,7 @@ import java.util.Comparator;
 
 public class TestManager {
 
-    public void start(Class c) throws InvocationTargetException, IllegalAccessException {
+    public static void start(Class c) throws InvocationTargetException, IllegalAccessException {
 
         //создаем лист из декларированных методов и переменные для методов @Before и @After, счетчики
         ArrayList<Method> methodList = new ArrayList<>(Arrays.asList(c.getDeclaredMethods()));
