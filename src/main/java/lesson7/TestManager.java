@@ -16,15 +16,14 @@ public class TestManager {
 
         //создаем лист из декларированных методов и переменные для методов @Before и @After, счетчики
         ArrayList<Method> methodList = new ArrayList<>(Arrays.asList(c.getDeclaredMethods()));
-        
-        if (methodList.size() == 0) {
-            throw new RuntimeException("В тестовом классе нет ни одного тестового метода");
-        }
-
         Method before = null;
         Method after = null;
         int beforeCount = 0;
         int afterCount = 0;
+        
+        if (methodList.size() == 0) {
+            throw new RuntimeException("В тестовом классе нет ни одного тестового метода");
+        }
 
         //проходимся циклом по методам, присваиваем методу before метод с аннотацией @BeforeSuite. Аналогично @AfterSuite.
         for (Method method : methodList) {
